@@ -6,12 +6,12 @@ const ampm = document.getElementById("ampm")
 
 
 const formet = (n) => n < 10 ? `0${n}` : `${n}`;
-
+const  d_n = (h) => h < 12 ? "AM" : "PM"
 
 setInterval(() => {
     const now = new Date();
-
     
+    const hoursH = now.getHours;//for am and pm
 
 
     const ghonta = formet(now.getHours());
@@ -22,7 +22,7 @@ setInterval(() => {
     menutes.innerHTML = minit;
     second.innerHTML = sekent;
 
-    
+    ampm.innerHTML = d_n(hoursH)//for am and pm
 }, 1000);
 
 
