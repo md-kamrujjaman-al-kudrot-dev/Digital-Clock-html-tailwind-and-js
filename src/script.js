@@ -8,21 +8,36 @@ const ampm = document.getElementById("ampm")
 const formet = (n) => n < 10 ? `0${n}` : `${n}`;
 const  d_n = (h) => h < 12 ? "AM" : "PM"
 
+
+function formet_12(realTime){
+    if(realTime === 0){
+        return 12
+    }else if(realTime > 12){
+        return realTime - 12
+    }else{
+        return realTime;
+    }
+
+} 
+
+
 setInterval(() => {
     const now = new Date();
     
-    const hoursH = now.getHours;//for am and pm
-
+    const hoursH = now.getHours();//for am and pm
+    const formet_12_H = now.getHours();//for 12h formet
+    
 
     const ghonta = formet(now.getHours());
     const minit = formet(now.getMinutes());
     const sekent = formet(now.getSeconds());
 
-    hours.innerHTML = ghonta;
+    hours.innerHTML = formet(formet_12(formet_12_H)); //for 12h formet
     menutes.innerHTML = minit;
     second.innerHTML = sekent;
 
     ampm.innerHTML = d_n(hoursH)//for am and pm
+
 }, 1000);
 
 
