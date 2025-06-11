@@ -1,4 +1,3 @@
-
 const hours = document.getElementById("hours")
 const menutes = document.getElementById("menutes")
 const second = document.getElementById("second")
@@ -11,8 +10,8 @@ const year = document.getElementById("year")
 
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const months = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
 ];
 
 
@@ -45,6 +44,7 @@ setInterval(() => {
     const din = days[now.getDay()]
     const mas = months[now.getMonth()]
     const bosor = now.getFullYear()
+    const date = now.getDate()
 
 
 
@@ -54,9 +54,9 @@ setInterval(() => {
     ampm.innerHTML = d_n(hoursH) //for am and pm
 
     day.innerHTML = din;
-    monthName.innerHTML = mas
+    monthName.innerHTML = ` ${date} ${mas}`
     year.innerHTML = bosor
-    
+
 
 
 }, 1000);
