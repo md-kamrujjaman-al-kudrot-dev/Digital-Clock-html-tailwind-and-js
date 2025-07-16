@@ -11,8 +11,9 @@
 
 <body class="custom-gradient w-full h-screen">
   <div class="flex items-center justify-center h-screen">
-    <div class=" w-[30rem] flex flex-col gap-6 items-center justify-center h-[20rem] bg-[rgba(148,169,236,0.29)] rounded">
-      
+    <div
+      class=" w-[30rem] flex flex-col gap-6 items-center justify-center h-auto p-6 bg-[rgba(148,169,236,0.29)] rounded">
+
       <!-- time section -->
       <div class="flex gap-8 items-center justify-center text-white rounded-2xl p-4 custom-gradient text-3xl ">
         <p id="hours">00:00</p>
@@ -29,8 +30,31 @@
         <p>:</p>
         <p id="month"></p>
         <p>:</p>
-        <p id="year"></p>      
+        <p id="year"></p>
       </div>
+
+      <!-- weather -->
+      <div class="flex flex-col items-center gap-2">
+
+        <div class="flex flex-col items-center">
+          <p class="custom-gradient text-white p-2 font-sans font-bold text-xl ">Enter the city name to see the current
+          </p>
+          <p class="bgc  text-white p-2 font-sans font-bold text-2xl">weather conditions.</p>
+        </div>
+
+        <!-- input  -->
+        <div
+          class="flex flex-col gap-4 items-center justify-center text-white  rounded-2xl p-2 bgc custom-gradient text-xl ">
+          <input class="border-none focus:outline-none p-1" type="text">
+        </div>
+        <!-- output -->
+        <div class="output">
+          <p class="degree"></p>
+          <p class="cityname"></p>
+        </div>
+
+      </div>
+
     </div>
   </div>
 
