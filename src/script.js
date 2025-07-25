@@ -6,7 +6,39 @@ const day = document.getElementById("Day")
 const monthName = document.getElementById("month")
 const year = document.getElementById("year")
 
+// input
+const enterButton = document.getElementById("EnterButton")
+const apiKey = "8de14a78891a0f2d07d27dfb63d1f271";
 
+const temp = document.getElementById("temp")
+const OutputName = document.getElementById("cityname")
+const humidity = document.getElementById("humidity")
+const wind = document.getElementById("wind")
+
+
+enterButton.addEventListener("click", function () {
+    const cityName = document.getElementById("inputValue").value.trim();
+
+    if (cityName === "") {
+        alert("Please enter a city name.");
+        return;
+    }
+
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${cityName}&appid=${apiKey}`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            temp.innerHTML = (`${data.main.temp} &deg;C`)
+            humidity.innerHTML = (`${data.main.humidity} % <p>Humidity</p>`)
+            wind.innerHTML = (`${data.wind.speed} km/h <p>Wind Speed</p>`)
+            OutputName.innerHTML = (data.name)
+        })
+        .catch(error => {
+            console.error("Error:", error)
+        })
+})
 
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const months = [
